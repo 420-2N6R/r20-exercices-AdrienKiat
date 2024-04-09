@@ -19,14 +19,30 @@ from math import pi
 class Sphere:
     def __init__(self, pRayon) -> None:
         self._rayon = pRayon
-    
+        
     @property
-    def rayon(self) :
-        pass
+    def rayon(self,pRayon) :
+        if type(pRayon) != int and type(pRayon) != float:
+            raise TypeError ("Veuillez changer le type")
+        if pRayon <= 0:
+            raise ValueError ("Veuillez mettre une valeur positive + que 0")
+        else:
+            self._rayon = pRayon
+    
+    def set_rayon(self,pRayon):
+        self._rayon = pRayon
+
+        if type(pRayon) != int and type(pRayon) != float:
+            raise TypeError ("Veuillez changer le type")
+        if pRayon <= 0:
+            raise ValueError ("Veuillez mettre une valeur positive + que 0")
+        else:
+            self._rayon = pRayon
 
     @property
-    def circonference(self):
-        pass # la circonférence d'une sphère est égal à " 2 * pi * rayon "
+    def circonference(self,pRayon):
+        self.circonference = 2 * pi * pRayon
+        return self.circonference # la circonférence d'une sphère est égal à " 2 * pi * rayon "
 
     @property
     def volume(self):
