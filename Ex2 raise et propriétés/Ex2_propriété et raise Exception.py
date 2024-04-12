@@ -46,7 +46,7 @@ class Sphere:
 
     @property
     def volume(self):
-        pass # le volume d'une sphère est égale à " 4/3 * pi * (rayon ** 3) "
+         # le volume d'une sphère est égale à " 4/3 * pi * (rayon ** 3) "
 
     @property
     def aire(self):
