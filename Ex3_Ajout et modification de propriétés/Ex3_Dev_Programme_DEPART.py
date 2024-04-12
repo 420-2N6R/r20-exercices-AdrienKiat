@@ -6,13 +6,24 @@ class Employe:
         self.prenom = prenom
         self.nom = nom
         self.role = role
-        self.salaire = salaire
+        self._salaire = salaire
         self.courriel = prenom + '.' + nom +'@gmail.com'
-        
+    
+    @property
+    def salaire(self):
+        return self._salaire
+    
+    @salaire.setter
+    def salaire(self,salaire):
+        if salaire > self._salaire:
+            self._salaire = salaire
+        else:
+            raise ValueError("Le nouveau salaire doit être supérieur à l'ancien")
+
     def __str__(self):
         info = f'\t ID: {self.id_employe}, \n\t Nom: {self.nom}, \n\t Prénom: {self.prenom}, \n\t Role: {self.role}'
         return info
-
+    
 class Programmeur(Employe): 
     def __init__(self,id_employe,prenom, nom, role, salaire,liste_fonctions=None):
         super().__init__(id_employe,prenom, nom, role, salaire)
